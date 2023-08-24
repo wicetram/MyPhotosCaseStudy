@@ -1,0 +1,28 @@
+﻿@model MyPhotosMVC.Models.PhotoAddViewModel
+
+@{
+    ViewData["Title"] = "Add Photo";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="AddPhoto" asp-controller="Photo" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tags">Tags</label>
+        <input asp-for="Tags" class="form-control" />
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageFile">Image</label>
+        <input asp-for="ImageFile" type="file" class="form-control-file" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Add Photo</button>
+    </div>
+</form>

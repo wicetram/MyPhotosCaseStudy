@@ -1,0 +1,20 @@
+﻿@model MyPhotosMVC.Models.PhotoDetailViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+<p>Tags: @Model.Tags</p>
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card">
+        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.ImageData)" class="card-img-top" alt="Photo" />
+        <div class="card-body">
+            <form asp-controller="Photo" asp-action="DeletePhoto" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-danger">Delete Photo</button>
+            </form>
+        </div>
+    </div>
+</div>
